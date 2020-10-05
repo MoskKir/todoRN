@@ -90,8 +90,9 @@ const styles = StyleSheet.create({
         
     },
     checkBox: {
-        backgroundColor: '#ffffff', 
-        color:'#dadada', 
+        color:'#575767',
+        borderWidth: 1,
+        borderColor: '#DADADA', 
         borderRadius: 5
     },
     listitemContainer: {

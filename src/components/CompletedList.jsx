@@ -3,58 +3,23 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import Checkbox from 'react-native-custom-checkbox'
 import { ListItem } from 'react-native-elements'
 
-
-const completedItemsList = [
-    {
-        title: 'Upload 1099-R to TurboTax',
-        category: '💰 Finance',
-        status: 'incomplete',
-    },
-    {
-        title: 'Submit 2019 tax return',
-        category: '💰 Finance',
-        status: 'incomplete',
-    },
-    {
-        title: 'Print parking passes',
-        category: '💞 Wedding',
-        status: 'incomplete',
-    },
-    {
-        title: 'Sign contract, send back',
-        category: '🖥️ Freelance',
-        status: 'incomplete',
-    },
-    {
-        title: 'Hand sanitizer',
-        category: '🛒 Shopping List',
-        status: 'incomplete',
-    },
-    {
-        title: 'Hand sanitizer',
-        category: '🛒 Shopping List',
-        status: 'incomplete',
-    },
-    {
-        title: 'Hand sanitizer',
-        category: '🛒 Shopping List',
-        status: 'incomplete',
-    },
-]
+import { useSelector } from 'react-redux'
 
 
 const CompletedList = () => {
     const onPress = () => {};
 
+    const todos = useSelector((state) => state.todos.todos)
+
     return (
         <View>
             <Text style={styles.title}>Completed</Text>
             {
-                completedItemsList.map((value, index) => (
-                    <TouchableOpacity onPress={onPress}>
+                todos.map((value, index) => (
+                    <TouchableOpacity onPress={onPress} key={index}>
                     <View 
                         style={styles.listItemContent} 
-                        key={index}
+                        
                         >
                         <View style={styles.checkboxContainer}>
                             <Checkbox 
@@ -87,24 +52,18 @@ const styles = StyleSheet.create({
     },
     listItemContent: {
         padding: 10,
-        
         height: 40,
         flexDirection: 'row',
     },
     checkboxContainer: {
         width: 25,
         marginRight: 10,
-        
-        
     },
     checkBox: {
-        backgroundColor: '#ffffff', 
-        color:'#dadada', 
-        borderRadius: 5
-    },
-    border: {
+        color:'#575767',
         borderWidth: 1,
-        // borderColor: 'red',
+        borderColor: '#DADADA', 
+        borderRadius: 5,
     },
     listitemContainer: {
         width: '70%',

@@ -3,6 +3,9 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import * as Font from 'expo-font';
 
+import { Provider } from 'react-redux';
+import store from './src/store'
+
 import { MainScreen } from './src/screens';
 
 
@@ -16,11 +19,13 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <MainScreen>
-        <Text style={styles.credits}>MoskKir 2020</Text>
-      </MainScreen>
-    </View>
+    <Provider store={store}>
+      <View style={styles.container}>
+        <MainScreen>
+          <Text style={styles.credits}>MoskKir 2020</Text>
+        </MainScreen>
+      </View>
+    </Provider>
   );
 }
 
