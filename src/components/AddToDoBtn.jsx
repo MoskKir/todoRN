@@ -1,20 +1,15 @@
 import React from 'react'
-import { StyleSheet, TouchableOpacity } from 'react-native'
+import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
-import { LinearGradient } from 'expo-linear-gradient'
 
-const AddToDoBtn = () => {
-    const onPress = () => console.log('add btn press');
+const AddToDoBtn = ({ isVisible } ) => {
 
     return (
-        <TouchableOpacity style={styles.btnContainer} onPress={onPress}>
-            <LinearGradient
-                colors={['rgba(0,0,255,0.8)', 'transparent']}
-                style={styles.linearGradientStyle}
-            >
+        <View style={styles.shadowStyle}>
+            <TouchableOpacity style={styles.btnContainer} onPress={isVisible}>
                 <Ionicons name="ios-add" size={48} color="#ffffff" />
-            </LinearGradient>
-        </TouchableOpacity>
+            </TouchableOpacity>
+        </View>
     )
 }
 
@@ -22,13 +17,22 @@ const styles = StyleSheet.create({
     btnContainer: {
         width: 60,
         height: 60,
-        borderRadius: 50,
+        borderRadius: 60,
         backgroundColor: '#515CC6',
         alignItems: 'center',
         justifyContent: 'center',
         position: 'absolute',
         bottom: 40,
         right: 20,
+
+        shadowColor: '#100873',
+        shadowOffset: {
+            width: 0,
+            height: 5,
+        },
+        shadowOpacity: 0.34,
+        shadowRadius: 6.27,
+        elevation: 10,
     },
     linearGradientStyle: {
         position: 'absolute',
@@ -36,10 +40,10 @@ const styles = StyleSheet.create({
         right: 0,
         top: 0,
         height: '100%',
-        borderRadius: 50,
+        borderRadius: 30,
         alignItems: 'center',
         justifyContent: 'center',
-    }
+    },
 })
 
 export default AddToDoBtn
